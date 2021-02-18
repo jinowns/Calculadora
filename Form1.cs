@@ -17,6 +17,16 @@ namespace Calculadora
             InitializeComponent();
         }
 
+        private void calcular()
+        {
+            switch(lbOperacao.Text)
+            {
+                case "+"
+
+
+            }
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             if (lbNumero.Text != "0")
@@ -106,15 +116,6 @@ namespace Calculadora
         private void bntMais_Click(object sender, EventArgs e)
         {
             lbOperacao.Text = "+";//mostrar operação
-            if(lbResultado.Text == "")
-                lbResultado.Text = "0";
-            
-            double n1 = double.Parse(lbNumero.Text);
-            double n2 = double.Parse(lbResultado.Text);
-            double resultado = n1 + n2;
-            lbResultado.Text = resultado.ToString();
-            
-            txtHistorico.Text += lbResultado.Text + lbOperacao.Text + "\n";//gravar Historico
 
         }
 

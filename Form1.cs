@@ -17,13 +17,36 @@ namespace Calculadora
             InitializeComponent();
         }
 
+        private void limparNulo ()
+        {
+            if (lbNumero.Text == "")
+            {
+                lbNumero.Text = "0";
+            }
+        }
         private void calcular()
         {
-            switch(lbOperacao.Text)
+            double n1 = double.Parse(lbResultado.Text);
+            double n2 = double.Parse(lbNumero.Text);
+            double resultado = 0;
+
+            switch (lbOperacao.Text)
             {
-                case "+"
+                case "+":
+                    resultado = n1 + n2;
+                    break;
 
+                case "-":
+                    resultado = n1 - n2;
+                    break;
 
+                case "*":
+                    resultado = n1 * n2;
+                    break;
+
+                case "/":
+                    resultado = n1 / n2;
+                    break;
             }
         }
 
@@ -116,7 +139,7 @@ namespace Calculadora
         private void bntMais_Click(object sender, EventArgs e)
         {
             lbOperacao.Text = "+";//mostrar operação
-
+            lbResultado.Text = lbNumero.Text;
         }
 
         private void bntMenos_Click(object sender, EventArgs e)
@@ -146,10 +169,12 @@ namespace Calculadora
         private void bntApaga_Click(object sender, EventArgs e)
         {
             lbNumero.Text = lbNumero.Text.Substring(0, lbNumero.Text.Length - 1);
-            if(lbNumero.Text == "")
-            {
-                lbNumero.Text = "0";
-            }            
+            limparNulo();        
+        }
+
+        private void bntIgual_Click(object sender, EventArgs e)
+        {
+            calcular();
         }
 
         private void Main_Calculadora_KeyDown(object sender, KeyEventArgs tecla)
@@ -203,6 +228,7 @@ namespace Calculadora
             {
                 bnt0.PerformClick();
             }
-        }
+        }//configuração para presionar as teclas do teclado
+
     }
 }

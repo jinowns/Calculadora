@@ -228,6 +228,7 @@ namespace Calculadora
             this.bntIgual.TabIndex = 18;
             this.bntIgual.Text = "=";
             this.bntIgual.UseVisualStyleBackColor = true;
+            this.bntIgual.Click += new System.EventHandler(this.bntIgual_Click);
             this.bntIgual.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Main_Calculadora_KeyDown);
             // 
             // bntDivisao

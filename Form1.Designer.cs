@@ -174,6 +174,7 @@ namespace Calculadora
             this.bntPorcentagem.TabIndex = 13;
             this.bntPorcentagem.Text = "%";
             this.bntPorcentagem.UseVisualStyleBackColor = true;
+            this.bntPorcentagem.Click += new System.EventHandler(this.bntPorcentagem_Click);
             this.bntPorcentagem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Main_Calculadora_KeyDown);
             // 
             // bntClear
@@ -250,6 +251,7 @@ namespace Calculadora
             this.bntVirgula.TabIndex = 20;
             this.bntVirgula.Text = ",";
             this.bntVirgula.UseVisualStyleBackColor = true;
+            this.bntVirgula.Click += new System.EventHandler(this.bntVirgula_Click);
             this.bntVirgula.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Main_Calculadora_KeyDown);
             // 
             // bntMenos
@@ -314,7 +316,7 @@ namespace Calculadora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(265, 291);
+            this.ClientSize = new System.Drawing.Size(265, 286);
             this.Controls.Add(this.txtHistorico);
             this.Controls.Add(this.bntHistorico);
             this.Controls.Add(this.lbOperacao);

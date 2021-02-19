@@ -34,18 +34,22 @@ namespace Calculadora
             {
                 case "+":
                     resultado = n1 + n2;
+                    lbResultado.Text = resultado.ToString();
                     break;
 
                 case "-":
                     resultado = n1 - n2;
+                    lbResultado.Text = resultado.ToString();
                     break;
 
                 case "*":
                     resultado = n1 * n2;
+                    lbResultado.Text = resultado.ToString();
                     break;
 
                 case "/":
                     resultado = n1 / n2;
+                    lbResultado.Text = resultado.ToString();
                     break;
             }
         }
@@ -124,8 +128,9 @@ namespace Calculadora
 
         private void bntClear_Click(object sender, EventArgs e)
         {
-            
+            lbResultado.Text = "";
             lbNumero.Text = "0";
+            lbOperacao.Text = "";
         }
 
         private void bnt0_Click(object sender, EventArgs e)
@@ -138,26 +143,62 @@ namespace Calculadora
 
         private void bntMais_Click(object sender, EventArgs e)
         {
-            lbOperacao.Text = "+";//mostrar operação
-            lbResultado.Text = lbNumero.Text;
+            if(lbOperacao.Text == "")//se a operação estiver vazia vai ser o primeiro calculo
+            {
+                lbResultado.Text = lbNumero.Text;
+                lbNumero.Text = "0";
+            }
+            else
+            {
+                calcular();
+            }
+
+            lbOperacao.Text = "+";
         }
 
         private void bntMenos_Click(object sender, EventArgs e)
         {
+            if (lbOperacao.Text == "")//se a operação estiver vazia vai ser o primeiro calculo
+            {
+                lbResultado.Text = lbNumero.Text;
+                lbNumero.Text = "0";
+            }
+            else
+            {
+                calcular();
+            }
+
             lbOperacao.Text = "-";
-            lbResultado.Text = lbNumero.Text;
         }
 
         private void bntVezes_Click(object sender, EventArgs e)
         {
+            if (lbOperacao.Text == "")//se a operação estiver vazia vai ser o primeiro calculo
+            {
+                lbResultado.Text = lbNumero.Text;
+                lbNumero.Text = "0";
+            }
+            else
+            {
+                calcular();
+            }
+
             lbOperacao.Text = "*";
-            lbResultado.Text = lbNumero.Text;
         }
 
         private void bntDivisao_Click(object sender, EventArgs e)
         {
+            if (lbOperacao.Text == "")//se a operação estiver vazia vai ser o primeiro calculo
+            {
+                lbResultado.Text = lbNumero.Text;
+                lbNumero.Text = "0";
+            }
+            else
+            {
+                calcular();
+            }
+
             lbOperacao.Text = "/";
-            lbResultado.Text = lbNumero.Text;
         }
 
         private void bntHistorico_Click(object sender, EventArgs e)
@@ -175,6 +216,17 @@ namespace Calculadora
         private void bntIgual_Click(object sender, EventArgs e)
         {
             calcular();
+        }
+
+        private void bntVirgula_Click(object sender, EventArgs e)
+        {
+            //lbNumero.Text += ".";
+        }
+
+        private void bntPorcentagem_Click(object sender, EventArgs e)
+        {
+            String numeroFormatado = string.Format(lbNumero.Text);
+
         }
 
         private void Main_Calculadora_KeyDown(object sender, KeyEventArgs tecla)
@@ -228,7 +280,36 @@ namespace Calculadora
             {
                 bnt0.PerformClick();
             }
-        }//configuração para presionar as teclas do teclado
 
+            if (tecla.KeyValue == 107)//pressionar a tecla +
+            {
+                bntMais.PerformClick();
+            }
+            
+            if (tecla.KeyValue == 109)//pressionar a tecla -
+            {
+                bntMenos.PerformClick();
+            }
+            
+            if (tecla.KeyValue == 106)//pressionar a tecla *
+            {
+                bntVezes.PerformClick();
+            }
+            
+            if (tecla.KeyValue == 111)//pressionar a tecla /
+            {
+                bntDivisao.PerformClick();
+            }
+
+            if (tecla.KeyValue == 13)//pressionar a tecla enter
+            {
+                bntIgual.PerformClick();
+            }
+
+            if (tecla.KeyValue == 8)//pressionar a tecla backspace
+            {
+                bntApaga.PerformClick();
+            }
+        }//configuração para presionar as teclas do teclado
     }
 }

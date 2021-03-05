@@ -316,7 +316,7 @@ namespace Calculadora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(265, 286);
+            this.ClientSize = new System.Drawing.Size(264, 291);
             this.Controls.Add(this.txtHistorico);
             this.Controls.Add(this.bntHistorico);
             this.Controls.Add(this.lbOperacao);

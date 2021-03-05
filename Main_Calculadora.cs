@@ -9,9 +9,26 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Calculadora
-{
+{     
     public partial class Main_Calculadora : Form
     {
+        private string[] historico = new string[9999];
+        private static int cont = 0;
+
+        public string[] getHistorico()
+        {
+            return historico; 
+        }
+        public void setHistorico(string historico)
+        {
+            this.historico[cont] = historico;
+            cont++;
+        }
+        public int getCont()
+        {
+            return cont;
+        }
+
         public Main_Calculadora()
         {
             InitializeComponent();
@@ -216,6 +233,14 @@ namespace Calculadora
         private void bntIgual_Click(object sender, EventArgs e)
         {
             calcular();
+            historico[cont] = lbResultado.Text + lbResultado.Text + lbNumero.Text;
+
+            MessageBox.Show(historico[cont]);
+            
+            txtHistorico.Text = historico[cont] + Environment.NewLine;
+            cont++;
+
+            //txtHistorico.Text += (lbResultado.Text + lbResultado.Text + lbNumero.Text + Environment.NewLine);
         }
 
         private void bntVirgula_Click(object sender, EventArgs e)

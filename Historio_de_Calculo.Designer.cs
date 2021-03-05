@@ -30,23 +30,23 @@ namespace Calculadora
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Historio_de_Calculo));
-            this.txtHistorico = new System.Windows.Forms.TextBox();
+            this.boxHistorico = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
-            // txtHistorico
+            // boxHistorico
             // 
-            this.txtHistorico.Location = new System.Drawing.Point(12, 12);
-            this.txtHistorico.Multiline = true;
-            this.txtHistorico.Name = "txtHistorico";
-            this.txtHistorico.Size = new System.Drawing.Size(776, 426);
-            this.txtHistorico.TabIndex = 0;
+            this.boxHistorico.FormattingEnabled = true;
+            this.boxHistorico.Location = new System.Drawing.Point(12, 12);
+            this.boxHistorico.Name = "boxHistorico";
+            this.boxHistorico.Size = new System.Drawing.Size(303, 264);
+            this.boxHistorico.TabIndex = 28;
             // 
             // Historio_de_Calculo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.txtHistorico);
+            this.ClientSize = new System.Drawing.Size(327, 291);
+            this.Controls.Add(this.boxHistorico);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -54,12 +54,11 @@ namespace Calculadora
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Historio_de_Calculo";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtHistorico;
+        private System.Windows.Forms.ListBox boxHistorico;
     }
 }

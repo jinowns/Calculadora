@@ -12,21 +12,25 @@ namespace Calculadora
 {     
     public partial class Main_Calculadora : Form
     {
-        private string[] historico = new string[9999];
-        private static int cont = 0;
+        private string[][] historico = new string[9999][9999];
+        private static int contColuna = 0;
+        private static int contLinha = 0;
+        double n1 = 0;
+        double n2 = 0;
+        double resultado = 0;
 
-        public string[] getHistorico()
+        public string[][] getHistorico()
         {
             return historico; 
         }
         public void setHistorico(string historico)
         {
-            this.historico[cont] = historico;
-            cont++;
+            this.historico[contColuna][contLinha] = historico;
+            contColuna++;
         }
         public int getCont()
         {
-            return cont;
+            return contColuna;
         }
 
         public Main_Calculadora()
@@ -43,30 +47,33 @@ namespace Calculadora
         }
         private void calcular()
         {
-            double n1 = double.Parse(lbResultado.Text);
-            double n2 = double.Parse(lbNumero.Text);
-            double resultado = 0;
+            n1 = double.Parse(lbResultado.Text);
+            n2 = double.Parse(lbNumero.Text);
 
             switch (lbOperacao.Text)
             {
                 case "+":
                     resultado = n1 + n2;
                     lbResultado.Text = resultado.ToString();
+                    lbNumero.Text = "0";
                     break;
 
                 case "-":
                     resultado = n1 - n2;
                     lbResultado.Text = resultado.ToString();
+                    lbNumero.Text = "0";
                     break;
 
                 case "*":
                     resultado = n1 * n2;
                     lbResultado.Text = resultado.ToString();
+                    lbNumero.Text = "0";
                     break;
 
                 case "/":
                     resultado = n1 / n2;
                     lbResultado.Text = resultado.ToString();
+                    lbNumero.Text = "0";
                     break;
             }
         }
@@ -148,6 +155,9 @@ namespace Calculadora
             lbResultado.Text = "";
             lbNumero.Text = "0";
             lbOperacao.Text = "";
+            n1 = 0;
+            n2 = 0;
+            resultado = 0;
         }
 
         private void bnt0_Click(object sender, EventArgs e)
@@ -233,12 +243,12 @@ namespace Calculadora
         private void bntIgual_Click(object sender, EventArgs e)
         {
             calcular();
-            historico[cont] = lbResultado.Text + lbResultado.Text + lbNumero.Text;
+            historico[contColuna] = n1.ToString()+ lbOperacao.Text + n2.ToString() + "=" + resultado.ToString();
 
-            MessageBox.Show(historico[cont]);
+            MessageBox.Show(historico[contColuna]);
             
-            txtHistorico.Text = historico[cont] + Environment.NewLine;
-            cont++;
+            txtHistorico.Text = historico[contColuna] + Environment.NewLine;
+            contColuna++;
 
             //txtHistorico.Text += (lbResultado.Text + lbResultado.Text + lbNumero.Text + Environment.NewLine);
         }

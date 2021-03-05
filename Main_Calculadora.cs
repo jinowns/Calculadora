@@ -12,20 +12,20 @@ namespace Calculadora
 {     
     public partial class Main_Calculadora : Form
     {
-        private string[][] historico = new string[9999][9999];
+        private string[,] historico = new string[9999,9999];
         private static int contColuna = 0;
         private static int contLinha = 0;
         double n1 = 0;
         double n2 = 0;
         double resultado = 0;
 
-        public string[][] getHistorico()
+        public string[,] getHistorico()
         {
             return historico; 
         }
         public void setHistorico(string historico)
         {
-            this.historico[contColuna][contLinha] = historico;
+            this.historico[contColuna,contLinha] = historico;
             contColuna++;
         }
         public int getCont()

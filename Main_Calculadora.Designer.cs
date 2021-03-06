@@ -309,14 +309,14 @@ namespace Calculadora
             this.txtHistorico.Location = new System.Drawing.Point(12, 427);
             this.txtHistorico.Multiline = true;
             this.txtHistorico.Name = "txtHistorico";
-            this.txtHistorico.Size = new System.Drawing.Size(776, 426);
+            this.txtHistorico.Size = new System.Drawing.Size(240, 426);
             this.txtHistorico.TabIndex = 26;
             // 
             // Main_Calculadora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(264, 291);
+            this.ClientSize = new System.Drawing.Size(264, 685);
             this.Controls.Add(this.txtHistorico);
             this.Controls.Add(this.bntHistorico);
             this.Controls.Add(this.lbOperacao);

@@ -17,14 +17,7 @@ namespace Calculadora
         public Historio_de_Calculo(string novoRegistro)
         {
             InitializeComponent();
-            //exibirHistorioco = calculadora.getHistorico;
-            //MessageBox.Show(calculadora.getHistorico);
-            for (int i = 0; i <= calculadora.getCont(); i++)
-            {
-                //exibirHistorioco[i] = calculadora.getHistorico[i];
-                //boxHistorico.Items.Add(calculadora.getHistorico[i]);
-                i++;
-            }
+
         }
     }
 }

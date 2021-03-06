@@ -12,25 +12,24 @@ namespace Calculadora
 {     
     public partial class Main_Calculadora : Form
     {
-        private string[,] historico = new string[9999,9999];
-        private static int contColuna = 0;
+        private string[] historico = new string[999];
         private static int contLinha = 0;
-        double n1 = 0;
-        double n2 = 0;
-        double resultado = 0;
+        private double n1 = 0;
+        private double n2 = 0;
+        private double resultado = 0;
 
-        public string[,] getHistorico()
+        public string[] getHistorico()
         {
             return historico; 
         }
         public void setHistorico(string historico)
         {
-            this.historico[contColuna,contLinha] = historico;
-            contColuna++;
+            this.historico[contLinha] = historico;
+            contLinha++;
         }
-        public int getCont()
+        public int getContLinha()
         {
-            return contColuna;
+            return contLinha;
         }
 
         public Main_Calculadora()
@@ -45,8 +44,20 @@ namespace Calculadora
                 lbNumero.Text = "0";
             }
         }
+
+        private void gravarHistorico()
+        {
+            if (lbResultado.Text != "" && lbNumero.Text != "0")//gravar historico
+            {
+                historico[contLinha] = n1.ToString() + lbOperacao.Text + n2.ToString() + "=" + resultado.ToString();
+                MessageBox.Show(historico[contLinha]);
+                contLinha++;
+            }
+        }
         private void calcular()
         {
+            
+            
             n1 = double.Parse(lbResultado.Text);
             n2 = double.Parse(lbNumero.Text);
 
@@ -54,24 +65,28 @@ namespace Calculadora
             {
                 case "+":
                     resultado = n1 + n2;
+                    gravarHistorico();                
                     lbResultado.Text = resultado.ToString();
                     lbNumero.Text = "0";
                     break;
 
                 case "-":
                     resultado = n1 - n2;
+                    gravarHistorico();
                     lbResultado.Text = resultado.ToString();
                     lbNumero.Text = "0";
                     break;
 
                 case "*":
                     resultado = n1 * n2;
+                    gravarHistorico();
                     lbResultado.Text = resultado.ToString();
                     lbNumero.Text = "0";
                     break;
 
                 case "/":
                     resultado = n1 / n2;
+                    gravarHistorico();
                     lbResultado.Text = resultado.ToString();
                     lbNumero.Text = "0";
                     break;
@@ -173,14 +188,14 @@ namespace Calculadora
             if(lbOperacao.Text == "")//se a operação estiver vazia vai ser o primeiro calculo
             {
                 lbResultado.Text = lbNumero.Text;
-                lbNumero.Text = "0";
+                lbOperacao.Text = "+";
+                lbNumero.Text = "0";                
             }
             else
             {
                 calcular();
+                lbOperacao.Text = "+";
             }
-
-            lbOperacao.Text = "+";
         }
 
         private void bntMenos_Click(object sender, EventArgs e)
@@ -188,14 +203,14 @@ namespace Calculadora
             if (lbOperacao.Text == "")//se a operação estiver vazia vai ser o primeiro calculo
             {
                 lbResultado.Text = lbNumero.Text;
+                lbOperacao.Text = "-";
                 lbNumero.Text = "0";
             }
             else
             {
                 calcular();
-            }
-
-            lbOperacao.Text = "-";
+                lbOperacao.Text = "-";
+            }           
         }
 
         private void bntVezes_Click(object sender, EventArgs e)
@@ -203,14 +218,14 @@ namespace Calculadora
             if (lbOperacao.Text == "")//se a operação estiver vazia vai ser o primeiro calculo
             {
                 lbResultado.Text = lbNumero.Text;
+                lbOperacao.Text = "*";
                 lbNumero.Text = "0";
             }
             else
             {
                 calcular();
+                lbOperacao.Text = "*";
             }
-
-            lbOperacao.Text = "*";
         }
 
         private void bntDivisao_Click(object sender, EventArgs e)
@@ -218,14 +233,14 @@ namespace Calculadora
             if (lbOperacao.Text == "")//se a operação estiver vazia vai ser o primeiro calculo
             {
                 lbResultado.Text = lbNumero.Text;
+                lbOperacao.Text = "/";
                 lbNumero.Text = "0";
             }
             else
             {
                 calcular();
+                lbOperacao.Text = "/";
             }
-
-            lbOperacao.Text = "/";
         }
 
         private void bntHistorico_Click(object sender, EventArgs e)
@@ -243,14 +258,6 @@ namespace Calculadora
         private void bntIgual_Click(object sender, EventArgs e)
         {
             calcular();
-            historico[contColuna] = n1.ToString()+ lbOperacao.Text + n2.ToString() + "=" + resultado.ToString();
-
-            MessageBox.Show(historico[contColuna]);
-            
-            txtHistorico.Text = historico[contColuna] + Environment.NewLine;
-            contColuna++;
-
-            //txtHistorico.Text += (lbResultado.Text + lbResultado.Text + lbNumero.Text + Environment.NewLine);
         }
 
         private void bntVirgula_Click(object sender, EventArgs e)

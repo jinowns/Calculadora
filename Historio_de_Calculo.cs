@@ -13,11 +13,14 @@ namespace Calculadora
     public partial class Historio_de_Calculo : Form
     {
         Main_Calculadora calculadora = new Main_Calculadora();
-        private string[] exibirHistorioco = new string[9999];
-        public Historio_de_Calculo(string novoRegistro)
+        public Historio_de_Calculo()
         {
             InitializeComponent();
+            var Teste = calculadora.getHistorico();
+            foreach(string linhaHistorico in Teste)
+            {
 
+            }            
         }
     }
 }

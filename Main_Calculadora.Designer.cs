@@ -53,7 +53,8 @@ namespace Calculadora
             this.lbResultado = new System.Windows.Forms.Label();
             this.lbOperacao = new System.Windows.Forms.Label();
             this.bntHistorico = new System.Windows.Forms.Button();
-            this.txtHistorico = new System.Windows.Forms.TextBox();
+            this.lbRaiz = new System.Windows.Forms.Button();
+            this.lbpotencia = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // bnt1
@@ -190,7 +191,7 @@ namespace Calculadora
             // 
             // bntVezes
             // 
-            this.bntVezes.Location = new System.Drawing.Point(163, 120);
+            this.bntVezes.Location = new System.Drawing.Point(163, 122);
             this.bntVezes.Name = "bntVezes";
             this.bntVezes.Size = new System.Drawing.Size(30, 23);
             this.bntVezes.TabIndex = 15;
@@ -302,22 +303,33 @@ namespace Calculadora
             this.bntHistorico.Click += new System.EventHandler(this.bntHistorico_Click);
             this.bntHistorico.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Main_Calculadora_KeyDown);
             // 
-            // txtHistorico
+            // lbRaiz
             // 
-            this.txtHistorico.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.txtHistorico.ForeColor = System.Drawing.SystemColors.Window;
-            this.txtHistorico.Location = new System.Drawing.Point(12, 427);
-            this.txtHistorico.Multiline = true;
-            this.txtHistorico.Name = "txtHistorico";
-            this.txtHistorico.Size = new System.Drawing.Size(240, 426);
-            this.txtHistorico.TabIndex = 26;
+            this.lbRaiz.Location = new System.Drawing.Point(199, 91);
+            this.lbRaiz.Name = "lbRaiz";
+            this.lbRaiz.Size = new System.Drawing.Size(30, 23);
+            this.lbRaiz.TabIndex = 26;
+            this.lbRaiz.Text = "√";
+            this.lbRaiz.UseVisualStyleBackColor = true;
+            this.lbRaiz.Click += new System.EventHandler(this.lbRaiz_Click);
+            // 
+            // lbpotencia
+            // 
+            this.lbpotencia.Location = new System.Drawing.Point(199, 122);
+            this.lbpotencia.Name = "lbpotencia";
+            this.lbpotencia.Size = new System.Drawing.Size(30, 23);
+            this.lbpotencia.TabIndex = 27;
+            this.lbpotencia.Text = "^";
+            this.lbpotencia.UseVisualStyleBackColor = true;
+            this.lbpotencia.Click += new System.EventHandler(this.lbpotencia_Click);
             // 
             // Main_Calculadora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(264, 685);
-            this.Controls.Add(this.txtHistorico);
+            this.ClientSize = new System.Drawing.Size(264, 277);
+            this.Controls.Add(this.lbpotencia);
+            this.Controls.Add(this.lbRaiz);
             this.Controls.Add(this.bntHistorico);
             this.Controls.Add(this.lbOperacao);
             this.Controls.Add(this.lbResultado);
@@ -378,7 +390,8 @@ namespace Calculadora
         private System.Windows.Forms.Label lbResultado;
         private System.Windows.Forms.Label lbOperacao;
         private System.Windows.Forms.Button bntHistorico;
-        private System.Windows.Forms.TextBox txtHistorico;
+        private System.Windows.Forms.Button lbRaiz;
+        private System.Windows.Forms.Button lbpotencia;
     }
 }
 

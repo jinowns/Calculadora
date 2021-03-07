@@ -56,8 +56,6 @@ namespace Calculadora
         }
         private void calcular()
         {
-            
-            
             n1 = double.Parse(lbResultado.Text);
             n2 = double.Parse(lbNumero.Text);
 
@@ -89,6 +87,14 @@ namespace Calculadora
                     gravarHistorico();
                     lbResultado.Text = resultado.ToString();
                     lbNumero.Text = "0";
+                    break;
+
+                case "^":
+                    //resultado =
+                    break;
+
+                case "√":
+                    resultado = Math.Sqrt(n2);
                     break;
             }
         }
@@ -245,8 +251,8 @@ namespace Calculadora
 
         private void bntHistorico_Click(object sender, EventArgs e)
         {
-            Historio_de_Calculo historio_De_Calculo = new Historio_de_Calculo(txtHistorico.Text);
-            historio_De_Calculo.ShowDialog();
+            Historio_de_Calculo historio_De_calulo = new Historio_de_Calculo();
+            historio_De_calulo.Show();
         }
 
         private void bntApaga_Click(object sender, EventArgs e)
@@ -262,13 +268,40 @@ namespace Calculadora
 
         private void bntVirgula_Click(object sender, EventArgs e)
         {
-            //lbNumero.Text += ".";
+            lbNumero.Text += ",";
         }
 
         private void bntPorcentagem_Click(object sender, EventArgs e)
         {
-            String numeroFormatado = string.Format(lbNumero.Text);
+            
+        }
 
+        private void lbpotencia_Click(object sender, EventArgs e)
+        {
+            if (lbOperacao.Text == "")//se a operação estiver vazia vai ser o primeiro calculo
+            {
+                lbResultado.Text = lbNumero.Text;
+                lbOperacao.Text = "^";
+                lbNumero.Text = "0";
+            }
+            else
+            {
+                calcular();
+                lbOperacao.Text = "^";
+            }
+        }
+        private void lbRaiz_Click(object sender, EventArgs e)
+        {
+            if (lbOperacao.Text == "")//se a operação estiver vazia vai ser o primeiro calculo
+            {
+                lbOperacao.Text = "√";
+                calcular();
+            }
+            else
+            {
+                calcular();
+                lbOperacao.Text = "√";
+            }
         }
 
         private void Main_Calculadora_KeyDown(object sender, KeyEventArgs tecla)
@@ -353,5 +386,6 @@ namespace Calculadora
                 bntApaga.PerformClick();
             }
         }//configuração para presionar as teclas do teclado
+
     }
 }

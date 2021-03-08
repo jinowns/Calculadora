@@ -47,11 +47,23 @@ namespace Calculadora
 
         private void gravarHistorico()
         {
-            if (lbResultado.Text != "" && lbNumero.Text != "0")//gravar historico
+            if (lbResultado.Text != "" && lbNumero.Text != "0" && lbOperacao.Text != "√" && lbOperacao.Text != "^")//gravar historico
             {
                 historico[contLinha] = n1.ToString() + lbOperacao.Text + n2.ToString() + "=" + resultado.ToString();
                 MessageBox.Show(historico[contLinha]);
                 contLinha++;
+            }
+            else
+            if(lbOperacao.Text == "√")
+            {
+                historico[contLinha] = lbOperacao.Text + n1.ToString() + "=" + resultado.ToString();
+                MessageBox.Show(historico[contLinha]);
+                contLinha++;
+            }
+            else
+            if(lbOperacao.Text == "^")
+            {
+
             }
         }
         private void calcular()
@@ -94,7 +106,9 @@ namespace Calculadora
                     break;
 
                 case "√":
-                    resultado = Math.Sqrt(n2);
+                    resultado = Math.Sqrt(n1);
+                    lbResultado.Text =resultado.ToString();
+                    gravarHistorico();
                     break;
             }
         }
@@ -294,8 +308,11 @@ namespace Calculadora
         {
             if (lbOperacao.Text == "")//se a operação estiver vazia vai ser o primeiro calculo
             {
+                lbResultado.Text = lbNumero.Text;
                 lbOperacao.Text = "√";
+                lbNumero.Text = "0";
                 calcular();
+                
             }
             else
             {

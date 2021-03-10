@@ -59,10 +59,10 @@ namespace Calculadora
             // 
             // bnt1
             // 
-            this.bnt1.Location = new System.Drawing.Point(55, 178);
+            this.bnt1.Location = new System.Drawing.Point(42, 178);
             this.bnt1.Name = "bnt1";
             this.bnt1.Size = new System.Drawing.Size(30, 23);
-            this.bnt1.TabIndex = 0;
+            this.bnt1.TabIndex = 4;
             this.bnt1.Text = "1";
             this.bnt1.UseVisualStyleBackColor = true;
             this.bnt1.Click += new System.EventHandler(this.button1_Click);
@@ -70,10 +70,10 @@ namespace Calculadora
             // 
             // bnt2
             // 
-            this.bnt2.Location = new System.Drawing.Point(91, 178);
+            this.bnt2.Location = new System.Drawing.Point(78, 178);
             this.bnt2.Name = "bnt2";
             this.bnt2.Size = new System.Drawing.Size(30, 23);
-            this.bnt2.TabIndex = 1;
+            this.bnt2.TabIndex = 5;
             this.bnt2.Text = "2";
             this.bnt2.UseVisualStyleBackColor = true;
             this.bnt2.Click += new System.EventHandler(this.bnt2_Click);
@@ -81,10 +81,10 @@ namespace Calculadora
             // 
             // bnt3
             // 
-            this.bnt3.Location = new System.Drawing.Point(127, 178);
+            this.bnt3.Location = new System.Drawing.Point(114, 178);
             this.bnt3.Name = "bnt3";
             this.bnt3.Size = new System.Drawing.Size(30, 23);
-            this.bnt3.TabIndex = 2;
+            this.bnt3.TabIndex = 6;
             this.bnt3.Text = "3";
             this.bnt3.UseVisualStyleBackColor = true;
             this.bnt3.Click += new System.EventHandler(this.bnt3_Click);
@@ -92,10 +92,10 @@ namespace Calculadora
             // 
             // bnt4
             // 
-            this.bnt4.Location = new System.Drawing.Point(55, 151);
+            this.bnt4.Location = new System.Drawing.Point(42, 151);
             this.bnt4.Name = "bnt4";
             this.bnt4.Size = new System.Drawing.Size(30, 23);
-            this.bnt4.TabIndex = 3;
+            this.bnt4.TabIndex = 8;
             this.bnt4.Text = "4";
             this.bnt4.UseVisualStyleBackColor = true;
             this.bnt4.Click += new System.EventHandler(this.bnt4_Click);
@@ -103,10 +103,10 @@ namespace Calculadora
             // 
             // bnt5
             // 
-            this.bnt5.Location = new System.Drawing.Point(91, 149);
+            this.bnt5.Location = new System.Drawing.Point(78, 149);
             this.bnt5.Name = "bnt5";
             this.bnt5.Size = new System.Drawing.Size(30, 23);
-            this.bnt5.TabIndex = 4;
+            this.bnt5.TabIndex = 9;
             this.bnt5.Text = "5";
             this.bnt5.UseVisualStyleBackColor = true;
             this.bnt5.Click += new System.EventHandler(this.bnt5_Click);
@@ -114,10 +114,10 @@ namespace Calculadora
             // 
             // bnt6
             // 
-            this.bnt6.Location = new System.Drawing.Point(127, 149);
+            this.bnt6.Location = new System.Drawing.Point(114, 149);
             this.bnt6.Name = "bnt6";
             this.bnt6.Size = new System.Drawing.Size(30, 23);
-            this.bnt6.TabIndex = 5;
+            this.bnt6.TabIndex = 10;
             this.bnt6.Text = "6";
             this.bnt6.UseVisualStyleBackColor = true;
             this.bnt6.Click += new System.EventHandler(this.bnt6_Click);
@@ -125,10 +125,10 @@ namespace Calculadora
             // 
             // bnt7
             // 
-            this.bnt7.Location = new System.Drawing.Point(55, 122);
+            this.bnt7.Location = new System.Drawing.Point(42, 122);
             this.bnt7.Name = "bnt7";
             this.bnt7.Size = new System.Drawing.Size(30, 23);
-            this.bnt7.TabIndex = 6;
+            this.bnt7.TabIndex = 12;
             this.bnt7.Text = "7";
             this.bnt7.UseVisualStyleBackColor = true;
             this.bnt7.Click += new System.EventHandler(this.bnt7_Click);
@@ -136,10 +136,10 @@ namespace Calculadora
             // 
             // bnt8
             // 
-            this.bnt8.Location = new System.Drawing.Point(91, 122);
+            this.bnt8.Location = new System.Drawing.Point(78, 122);
             this.bnt8.Name = "bnt8";
             this.bnt8.Size = new System.Drawing.Size(30, 23);
-            this.bnt8.TabIndex = 7;
+            this.bnt8.TabIndex = 13;
             this.bnt8.Text = "8";
             this.bnt8.UseVisualStyleBackColor = true;
             this.bnt8.Click += new System.EventHandler(this.bnt8_Click);
@@ -147,10 +147,10 @@ namespace Calculadora
             // 
             // bnt9
             // 
-            this.bnt9.Location = new System.Drawing.Point(127, 122);
+            this.bnt9.Location = new System.Drawing.Point(114, 122);
             this.bnt9.Name = "bnt9";
             this.bnt9.Size = new System.Drawing.Size(30, 23);
-            this.bnt9.TabIndex = 8;
+            this.bnt9.TabIndex = 14;
             this.bnt9.Text = "9";
             this.bnt9.UseVisualStyleBackColor = true;
             this.bnt9.Click += new System.EventHandler(this.bnt9_Click);
@@ -158,10 +158,10 @@ namespace Calculadora
             // 
             // bntApaga
             // 
-            this.bntApaga.Location = new System.Drawing.Point(127, 91);
+            this.bntApaga.Location = new System.Drawing.Point(114, 91);
             this.bntApaga.Name = "bntApaga";
             this.bntApaga.Size = new System.Drawing.Size(30, 23);
-            this.bntApaga.TabIndex = 9;
+            this.bntApaga.TabIndex = 19;
             this.bntApaga.Text = "<-";
             this.bntApaga.UseVisualStyleBackColor = true;
             this.bntApaga.Click += new System.EventHandler(this.bntApaga_Click);
@@ -169,10 +169,10 @@ namespace Calculadora
             // 
             // bntPorcentagem
             // 
-            this.bntPorcentagem.Location = new System.Drawing.Point(55, 91);
+            this.bntPorcentagem.Location = new System.Drawing.Point(42, 91);
             this.bntPorcentagem.Name = "bntPorcentagem";
             this.bntPorcentagem.Size = new System.Drawing.Size(30, 23);
-            this.bntPorcentagem.TabIndex = 13;
+            this.bntPorcentagem.TabIndex = 17;
             this.bntPorcentagem.Text = "%";
             this.bntPorcentagem.UseVisualStyleBackColor = true;
             this.bntPorcentagem.Click += new System.EventHandler(this.bntPorcentagem_Click);
@@ -180,10 +180,10 @@ namespace Calculadora
             // 
             // bntClear
             // 
-            this.bntClear.Location = new System.Drawing.Point(91, 91);
+            this.bntClear.Location = new System.Drawing.Point(78, 91);
             this.bntClear.Name = "bntClear";
             this.bntClear.Size = new System.Drawing.Size(30, 23);
-            this.bntClear.TabIndex = 14;
+            this.bntClear.TabIndex = 18;
             this.bntClear.Text = "C";
             this.bntClear.UseVisualStyleBackColor = true;
             this.bntClear.Click += new System.EventHandler(this.bntClear_Click);
@@ -191,7 +191,7 @@ namespace Calculadora
             // 
             // bntVezes
             // 
-            this.bntVezes.Location = new System.Drawing.Point(163, 122);
+            this.bntVezes.Location = new System.Drawing.Point(150, 122);
             this.bntVezes.Name = "bntVezes";
             this.bntVezes.Size = new System.Drawing.Size(30, 23);
             this.bntVezes.TabIndex = 15;
@@ -202,10 +202,10 @@ namespace Calculadora
             // 
             // bntMais
             // 
-            this.bntMais.Location = new System.Drawing.Point(163, 178);
+            this.bntMais.Location = new System.Drawing.Point(150, 178);
             this.bntMais.Name = "bntMais";
             this.bntMais.Size = new System.Drawing.Size(30, 23);
-            this.bntMais.TabIndex = 16;
+            this.bntMais.TabIndex = 7;
             this.bntMais.Text = "+";
             this.bntMais.UseVisualStyleBackColor = true;
             this.bntMais.Click += new System.EventHandler(this.bntMais_Click);
@@ -213,10 +213,10 @@ namespace Calculadora
             // 
             // bnt0
             // 
-            this.bnt0.Location = new System.Drawing.Point(91, 207);
+            this.bnt0.Location = new System.Drawing.Point(78, 207);
             this.bnt0.Name = "bnt0";
             this.bnt0.Size = new System.Drawing.Size(30, 23);
-            this.bnt0.TabIndex = 17;
+            this.bnt0.TabIndex = 1;
             this.bnt0.Text = "0";
             this.bnt0.UseVisualStyleBackColor = true;
             this.bnt0.Click += new System.EventHandler(this.bnt0_Click);
@@ -224,10 +224,10 @@ namespace Calculadora
             // 
             // bntIgual
             // 
-            this.bntIgual.Location = new System.Drawing.Point(163, 207);
+            this.bntIgual.Location = new System.Drawing.Point(150, 207);
             this.bntIgual.Name = "bntIgual";
             this.bntIgual.Size = new System.Drawing.Size(30, 23);
-            this.bntIgual.TabIndex = 18;
+            this.bntIgual.TabIndex = 3;
             this.bntIgual.Text = "=";
             this.bntIgual.UseVisualStyleBackColor = true;
             this.bntIgual.Click += new System.EventHandler(this.bntIgual_Click);
@@ -235,10 +235,10 @@ namespace Calculadora
             // 
             // bntDivisao
             // 
-            this.bntDivisao.Location = new System.Drawing.Point(163, 91);
+            this.bntDivisao.Location = new System.Drawing.Point(150, 91);
             this.bntDivisao.Name = "bntDivisao";
             this.bntDivisao.Size = new System.Drawing.Size(30, 23);
-            this.bntDivisao.TabIndex = 19;
+            this.bntDivisao.TabIndex = 20;
             this.bntDivisao.Text = "/";
             this.bntDivisao.UseVisualStyleBackColor = true;
             this.bntDivisao.Click += new System.EventHandler(this.bntDivisao_Click);
@@ -246,10 +246,10 @@ namespace Calculadora
             // 
             // bntVirgula
             // 
-            this.bntVirgula.Location = new System.Drawing.Point(127, 207);
+            this.bntVirgula.Location = new System.Drawing.Point(114, 207);
             this.bntVirgula.Name = "bntVirgula";
             this.bntVirgula.Size = new System.Drawing.Size(30, 23);
-            this.bntVirgula.TabIndex = 20;
+            this.bntVirgula.TabIndex = 2;
             this.bntVirgula.Text = ",";
             this.bntVirgula.UseVisualStyleBackColor = true;
             this.bntVirgula.Click += new System.EventHandler(this.bntVirgula_Click);
@@ -257,10 +257,10 @@ namespace Calculadora
             // 
             // bntMenos
             // 
-            this.bntMenos.Location = new System.Drawing.Point(163, 149);
+            this.bntMenos.Location = new System.Drawing.Point(150, 149);
             this.bntMenos.Name = "bntMenos";
             this.bntMenos.Size = new System.Drawing.Size(30, 23);
-            this.bntMenos.TabIndex = 21;
+            this.bntMenos.TabIndex = 11;
             this.bntMenos.Text = "-";
             this.bntMenos.UseVisualStyleBackColor = true;
             this.bntMenos.Click += new System.EventHandler(this.bntMenos_Click);
@@ -270,7 +270,7 @@ namespace Calculadora
             // 
             this.lbNumero.AutoSize = true;
             this.lbNumero.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lbNumero.Location = new System.Drawing.Point(52, 64);
+            this.lbNumero.Location = new System.Drawing.Point(39, 64);
             this.lbNumero.Name = "lbNumero";
             this.lbNumero.Size = new System.Drawing.Size(13, 13);
             this.lbNumero.TabIndex = 22;
@@ -279,7 +279,7 @@ namespace Calculadora
             // lbResultado
             // 
             this.lbResultado.AutoSize = true;
-            this.lbResultado.Location = new System.Drawing.Point(52, 35);
+            this.lbResultado.Location = new System.Drawing.Point(39, 35);
             this.lbResultado.Name = "lbResultado";
             this.lbResultado.Size = new System.Drawing.Size(0, 13);
             this.lbResultado.TabIndex = 23;
@@ -287,17 +287,17 @@ namespace Calculadora
             // lbOperacao
             // 
             this.lbOperacao.AutoSize = true;
-            this.lbOperacao.Location = new System.Drawing.Point(193, 50);
+            this.lbOperacao.Location = new System.Drawing.Point(180, 50);
             this.lbOperacao.Name = "lbOperacao";
             this.lbOperacao.Size = new System.Drawing.Size(0, 13);
             this.lbOperacao.TabIndex = 24;
             // 
             // bntHistorico
             // 
-            this.bntHistorico.Location = new System.Drawing.Point(55, 207);
+            this.bntHistorico.Location = new System.Drawing.Point(42, 207);
             this.bntHistorico.Name = "bntHistorico";
             this.bntHistorico.Size = new System.Drawing.Size(30, 23);
-            this.bntHistorico.TabIndex = 25;
+            this.bntHistorico.TabIndex = 0;
             this.bntHistorico.Text = "H";
             this.bntHistorico.UseVisualStyleBackColor = true;
             this.bntHistorico.Click += new System.EventHandler(this.bntHistorico_Click);
@@ -305,20 +305,20 @@ namespace Calculadora
             // 
             // lbRaiz
             // 
-            this.lbRaiz.Location = new System.Drawing.Point(199, 91);
+            this.lbRaiz.Location = new System.Drawing.Point(186, 91);
             this.lbRaiz.Name = "lbRaiz";
             this.lbRaiz.Size = new System.Drawing.Size(30, 23);
-            this.lbRaiz.TabIndex = 26;
+            this.lbRaiz.TabIndex = 21;
             this.lbRaiz.Text = "√";
             this.lbRaiz.UseVisualStyleBackColor = true;
             this.lbRaiz.Click += new System.EventHandler(this.lbRaiz_Click);
             // 
             // lbpotencia
             // 
-            this.lbpotencia.Location = new System.Drawing.Point(199, 122);
+            this.lbpotencia.Location = new System.Drawing.Point(186, 122);
             this.lbpotencia.Name = "lbpotencia";
             this.lbpotencia.Size = new System.Drawing.Size(30, 23);
-            this.lbpotencia.TabIndex = 27;
+            this.lbpotencia.TabIndex = 16;
             this.lbpotencia.Text = "^";
             this.lbpotencia.UseVisualStyleBackColor = true;
             this.lbpotencia.Click += new System.EventHandler(this.lbpotencia_Click);
@@ -327,7 +327,7 @@ namespace Calculadora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(264, 277);
+            this.ClientSize = new System.Drawing.Size(251, 286);
             this.Controls.Add(this.lbpotencia);
             this.Controls.Add(this.lbRaiz);
             this.Controls.Add(this.bntHistorico);
@@ -359,6 +359,7 @@ namespace Calculadora
             this.Name = "Main_Calculadora";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Calculadora";
+            this.Shown += new System.EventHandler(this.Main_Calculadora_Shown);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Main_Calculadora_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();

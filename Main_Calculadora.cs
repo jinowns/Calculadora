@@ -32,6 +32,16 @@ namespace Calculadora
             return contLinha;
         }
 
+        /*public string[] GetSetHistorioco
+        {
+            get => historico;
+            set
+            {
+                this.historico[contLinha] = value;
+                contLinha++;
+            }
+        }*/
+
         public Main_Calculadora()
         {
             InitializeComponent();
@@ -47,7 +57,7 @@ namespace Calculadora
 
         private void gravarHistorico()
         {
-            if (lbResultado.Text != "" && lbNumero.Text != "0" && lbOperacao.Text != "√" && lbOperacao.Text != "^")//gravar historico
+            if (lbResultado.Text != "" && lbNumero.Text != "0" && lbOperacao.Text != "√")//gravar historico
             {
                 historico[contLinha] = n1.ToString() + lbOperacao.Text + n2.ToString() + "=" + resultado.ToString();
                 MessageBox.Show(historico[contLinha]);
@@ -60,56 +70,62 @@ namespace Calculadora
                 MessageBox.Show(historico[contLinha]);
                 contLinha++;
             }
-            else
-            if(lbOperacao.Text == "^")
-            {
-
-            }
         }
         private void calcular()
         {
-            n1 = double.Parse(lbResultado.Text);
-            n2 = double.Parse(lbNumero.Text);
 
-            switch (lbOperacao.Text)
+            try
             {
-                case "+":
-                    resultado = n1 + n2;
-                    gravarHistorico();                
-                    lbResultado.Text = resultado.ToString();
-                    lbNumero.Text = "0";
-                    break;
+                n1 = double.Parse(lbResultado.Text);
+                n2 = double.Parse(lbNumero.Text);
 
-                case "-":
-                    resultado = n1 - n2;
-                    gravarHistorico();
-                    lbResultado.Text = resultado.ToString();
-                    lbNumero.Text = "0";
-                    break;
+                switch (lbOperacao.Text)
+                {
+                    case "+":
+                        resultado = n1 + n2;
+                        gravarHistorico();
+                        lbResultado.Text = resultado.ToString();
+                        lbNumero.Text = "0";
+                        break;
 
-                case "*":
-                    resultado = n1 * n2;
-                    gravarHistorico();
-                    lbResultado.Text = resultado.ToString();
-                    lbNumero.Text = "0";
-                    break;
+                    case "-":
+                        resultado = n1 - n2;
+                        gravarHistorico();
+                        lbResultado.Text = resultado.ToString();
+                        lbNumero.Text = "0";
+                        break;
 
-                case "/":
-                    resultado = n1 / n2;
-                    gravarHistorico();
-                    lbResultado.Text = resultado.ToString();
-                    lbNumero.Text = "0";
-                    break;
+                    case "*":
+                        resultado = n1 * n2;
+                        gravarHistorico();
+                        lbResultado.Text = resultado.ToString();
+                        lbNumero.Text = "0";
+                        break;
 
-                case "^":
-                    //resultado =
-                    break;
+                    case "/":
+                        resultado = n1 / n2;
+                        gravarHistorico();
+                        lbResultado.Text = resultado.ToString();
+                        lbNumero.Text = "0";
+                        break;
 
-                case "√":
-                    resultado = Math.Sqrt(n1);
-                    lbResultado.Text =resultado.ToString();
-                    gravarHistorico();
-                    break;
+                    case "^":
+                        resultado = Math.Pow(n1,n2);
+                        gravarHistorico();
+                        lbResultado.Text = resultado.ToString();
+                        lbNumero.Text = "0";
+                        break;
+
+                    case "√":
+                        resultado = Math.Sqrt(n1);
+                        lbResultado.Text = resultado.ToString();
+                        gravarHistorico();
+                        break;
+                }
+            }
+           catch
+            {
+                MessageBox.Show("Digite um Número");
             }
         }
 
@@ -404,5 +420,17 @@ namespace Calculadora
             }
         }//configuração para presionar as teclas do teclado
 
+        private void Main_Calculadora_Load(object sender, EventArgs e)
+        {
+            if (lbNumero.CanFocus)
+            {
+                lbNumero.Focus();
+            }
+        }
+
+        private void Main_Calculadora_Shown(object sender, EventArgs e)//começar o progrma focando no bntIgual
+        {
+            bntIgual.Focus();
+        }
     }
 }

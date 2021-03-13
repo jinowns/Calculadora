@@ -43,21 +43,18 @@ namespace Calculadora
             if (lbResultado.Text != "" && lbNumero.Text != "0" && lbRaizPotencia.Text == "")//gravar historico
             {
                 vHistorico[contLinha] = n1.ToString() + lbOperacao.Text + n2.ToString() + "=" + resultado.ToString();
-                MessageBox.Show(vHistorico[contLinha]);
                 contLinha++;
             }
             else
             if(lbRaizPotencia.Text == "√" && lbResultado.Text == "")//a primeira conta foi de um raiz
             {
                 vHistorico[contLinha] = lbRaizPotencia.Text + lbNumero.Text + "=" + n2.ToString();
-                MessageBox.Show(vHistorico[contLinha]);
                 contLinha++;
             }
             else
             if(lbRaizPotencia.Text == "√" && lbResultado.Text != "" && lbNumero.Text != "0" && lbOperacao.Text != "" && resultado != 0 || lbRaizPotencia.Text == "^" && lbResultado.Text != "" && lbNumero.Text != "0" && lbOperacao.Text != "" && resultado != 0)
             {
                 vHistorico[contLinha] = lbResultado.Text + lbOperacao.Text +lbRaizPotencia.Text + lbNumero.Text + "=" + resultado.ToString();
-                MessageBox.Show(vHistorico[contLinha]);
                 contLinha++;
                 lbRaizPotencia.Text = "";
             }
@@ -65,14 +62,12 @@ namespace Calculadora
             if (lbRaizPotencia.Text == "^" && lbResultado.Text == "")//a primeira conta foi de um raiz
             {
                 vHistorico[contLinha] = lbRaizPotencia.Text + lbNumero.Text + "=" + n2.ToString();
-                MessageBox.Show(vHistorico[contLinha]);
                 contLinha++;
             }
             else
             if (lbResultado.Text != "" && lbNumero.Text == "0" && lbRaizPotencia.Text == "")//gravar historico
             {
                 vHistorico[contLinha] = n1.ToString() + lbOperacao.Text + n2.ToString() + "=" + resultado.ToString();
-                MessageBox.Show(vHistorico[contLinha]);
                 contLinha++;
             }
         }
@@ -98,16 +93,14 @@ namespace Calculadora
                 }
                 if(lbResultado.Text == "" || lbOperacao.Text == "")//verifica se é o primeiro calculo ou se não fio feito operação de +-*/
                 {
-                    
-                    lbResultado.Text = n2.ToString();
                     gravarHistorico();
+                    lbResultado.Text = n2.ToString();                    
                     lbNumero.Text = "0";                       
                 }
                 else
                 {
-                    
-                    lbResultado.Text = resultado.ToString();
                     gravarHistorico();
+                    lbResultado.Text = resultado.ToString();                    
                     lbNumero.Text = "0";
                 }            
             }

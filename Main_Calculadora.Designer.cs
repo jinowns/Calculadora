@@ -53,8 +53,9 @@ namespace Calculadora
             this.lbResultado = new System.Windows.Forms.Label();
             this.lbOperacao = new System.Windows.Forms.Label();
             this.bntHistorico = new System.Windows.Forms.Button();
-            this.lbRaiz = new System.Windows.Forms.Button();
-            this.lbpotencia = new System.Windows.Forms.Button();
+            this.bntRaiz = new System.Windows.Forms.Button();
+            this.bntpotencia = new System.Windows.Forms.Button();
+            this.lbRaizPotencia = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // bnt1
@@ -303,33 +304,42 @@ namespace Calculadora
             this.bntHistorico.Click += new System.EventHandler(this.bntHistorico_Click);
             this.bntHistorico.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Main_Calculadora_KeyDown);
             // 
-            // lbRaiz
+            // bntRaiz
             // 
-            this.lbRaiz.Location = new System.Drawing.Point(186, 91);
-            this.lbRaiz.Name = "lbRaiz";
-            this.lbRaiz.Size = new System.Drawing.Size(30, 23);
-            this.lbRaiz.TabIndex = 21;
-            this.lbRaiz.Text = "√";
-            this.lbRaiz.UseVisualStyleBackColor = true;
-            this.lbRaiz.Click += new System.EventHandler(this.lbRaiz_Click);
+            this.bntRaiz.Location = new System.Drawing.Point(186, 91);
+            this.bntRaiz.Name = "bntRaiz";
+            this.bntRaiz.Size = new System.Drawing.Size(30, 23);
+            this.bntRaiz.TabIndex = 21;
+            this.bntRaiz.Text = "√";
+            this.bntRaiz.UseVisualStyleBackColor = true;
+            this.bntRaiz.Click += new System.EventHandler(this.lbRaiz_Click);
             // 
-            // lbpotencia
+            // bntpotencia
             // 
-            this.lbpotencia.Location = new System.Drawing.Point(186, 122);
-            this.lbpotencia.Name = "lbpotencia";
-            this.lbpotencia.Size = new System.Drawing.Size(30, 23);
-            this.lbpotencia.TabIndex = 16;
-            this.lbpotencia.Text = "^";
-            this.lbpotencia.UseVisualStyleBackColor = true;
-            this.lbpotencia.Click += new System.EventHandler(this.lbpotencia_Click);
+            this.bntpotencia.Location = new System.Drawing.Point(186, 122);
+            this.bntpotencia.Name = "bntpotencia";
+            this.bntpotencia.Size = new System.Drawing.Size(30, 23);
+            this.bntpotencia.TabIndex = 16;
+            this.bntpotencia.Text = "^";
+            this.bntpotencia.UseVisualStyleBackColor = true;
+            this.bntpotencia.Click += new System.EventHandler(this.lbpotencia_Click);
+            // 
+            // lbRaizPotencia
+            // 
+            this.lbRaizPotencia.AutoSize = true;
+            this.lbRaizPotencia.Location = new System.Drawing.Point(22, 64);
+            this.lbRaizPotencia.Name = "lbRaizPotencia";
+            this.lbRaizPotencia.Size = new System.Drawing.Size(0, 13);
+            this.lbRaizPotencia.TabIndex = 25;
             // 
             // Main_Calculadora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(251, 286);
-            this.Controls.Add(this.lbpotencia);
-            this.Controls.Add(this.lbRaiz);
+            this.Controls.Add(this.lbRaizPotencia);
+            this.Controls.Add(this.bntpotencia);
+            this.Controls.Add(this.bntRaiz);
             this.Controls.Add(this.bntHistorico);
             this.Controls.Add(this.lbOperacao);
             this.Controls.Add(this.lbResultado);
@@ -391,8 +401,9 @@ namespace Calculadora
         private System.Windows.Forms.Label lbResultado;
         private System.Windows.Forms.Label lbOperacao;
         private System.Windows.Forms.Button bntHistorico;
-        private System.Windows.Forms.Button lbRaiz;
-        private System.Windows.Forms.Button lbpotencia;
+        private System.Windows.Forms.Button bntRaiz;
+        private System.Windows.Forms.Button bntpotencia;
+        private System.Windows.Forms.Label lbRaizPotencia;
     }
 }
 

@@ -12,15 +12,18 @@ namespace Calculadora
 {
     public partial class Historio_de_Calculo : Form
     {
-        Main_Calculadora calculadora = new Main_Calculadora();
-        public Historio_de_Calculo()
+        public Historio_de_Calculo(string [] vHistorico)
         {
             InitializeComponent();
-            var Teste = calculadora.getHistorico();
-            foreach(string linhaHistorico in Teste)
+            var historico = vHistorico;
+            foreach(string linhaHistorico in historico)
             {
-
-            }            
+                if(string.IsNullOrEmpty(linhaHistorico))
+                {
+                    break;
+                }
+                boxHistorico.Items.Add(linhaHistorico);
+            } 
         }
     }
 }

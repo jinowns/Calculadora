@@ -18,33 +18,29 @@ namespace Calculadora
         private double n2 = 0;
         private double resultado = 0;
 
-        public string[] getHistorico()
-        {
-            return historico; 
-        }
-        public void setHistorico(string historico)
-        {
-            this.historico[contLinha] = historico;
-            contLinha++;
-        }
         public int getContLinha()
         {
             return contLinha;
         }
 
-        /*public string[] GetSetHistorioco
+        /*private string sVariavel = "";
+
+        public string Variavel
         {
-            get => historico;
-            set
-            {
-                this.historico[contLinha] = value;
-                contLinha++;
-            }
+            get { return sVariavel}
+            set { sVariavel = value; }
         }*/
+
+        public string[] vHistorico
+        {
+            get { return historico; }
+            set { historico = value; }
+        }
 
         public Main_Calculadora()
         {
             InitializeComponent();
+
         }
 
         private void limparNulo ()
@@ -59,18 +55,19 @@ namespace Calculadora
         {
             if (lbResultado.Text != "" && lbNumero.Text != "0" && lbOperacao.Text != "√")//gravar historico
             {
-                historico[contLinha] = n1.ToString() + lbOperacao.Text + n2.ToString() + "=" + resultado.ToString();
-                MessageBox.Show(historico[contLinha]);
+                vHistorico[contLinha] = n1.ToString() + lbOperacao.Text + n2.ToString() + "=" + resultado.ToString();
+                MessageBox.Show(vHistorico[contLinha]);
                 contLinha++;
             }
             else
             if(lbOperacao.Text == "√")
             {
-                historico[contLinha] = lbOperacao.Text + n1.ToString() + "=" + resultado.ToString();
-                MessageBox.Show(historico[contLinha]);
+                vHistorico[contLinha] = lbOperacao.Text + n1.ToString() + "=" + resultado.ToString();
+                MessageBox.Show(vHistorico[contLinha]);
                 contLinha++;
             }
         }
+
         private void calcular()
         {
 
@@ -78,6 +75,21 @@ namespace Calculadora
             {
                 n1 = double.Parse(lbResultado.Text);
                 n2 = double.Parse(lbNumero.Text);
+
+                if (lbRaizPotencia.Text != "")
+                {
+                    switch (lbRaizPotencia.Text)
+                    {
+                        case "√":
+                            n2 = Math.Sqrt(n2);
+                            lbRaizPotencia.Text = "";
+                            break;
+                        case "^":
+                            n2 = Math.Pow(n2,n2);
+                            lbRaizPotencia.Text = "";
+                            break;
+                    }
+                }
 
                 switch (lbOperacao.Text)
                 {
@@ -281,7 +293,8 @@ namespace Calculadora
 
         private void bntHistorico_Click(object sender, EventArgs e)
         {
-            Historio_de_Calculo historio_De_calulo = new Historio_de_Calculo();
+            Historio_de_Calculo historio_De_calulo = new Historio_de_Calculo(vHistorico);
+
             historio_De_calulo.Show();
         }
 
@@ -324,9 +337,8 @@ namespace Calculadora
         {
             if (lbOperacao.Text == "")//se a operação estiver vazia vai ser o primeiro calculo
             {
-                lbResultado.Text = lbNumero.Text;
-                lbOperacao.Text = "√";
-                lbNumero.Text = "0";
+                lbResultado.Text = "0";
+                lbRaizPotencia.Text = "√";
                 calcular();
                 
             }
@@ -419,14 +431,6 @@ namespace Calculadora
                 bntApaga.PerformClick();
             }
         }//configuração para presionar as teclas do teclado
-
-        private void Main_Calculadora_Load(object sender, EventArgs e)
-        {
-            if (lbNumero.CanFocus)
-            {
-                lbNumero.Focus();
-            }
-        }
 
         private void Main_Calculadora_Shown(object sender, EventArgs e)//começar o progrma focando no bntIgual
         {

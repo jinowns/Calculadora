@@ -18,19 +18,6 @@ namespace Calculadora
         private double n2 = 0;
         private double resultado = 0;
 
-        public int getContLinha()
-        {
-            return contLinha;
-        }
-
-        /*private string sVariavel = "";
-
-        public string Variavel
-        {
-            get { return sVariavel}
-            set { sVariavel = value; }
-        }*/
-
         public string[] vHistorico
         {
             get { return historico; }
@@ -53,16 +40,38 @@ namespace Calculadora
 
         private void gravarHistorico()
         {
-            if (lbResultado.Text != "" && lbNumero.Text != "0" && lbOperacao.Text != "√")//gravar historico
+            if (lbResultado.Text != "" && lbNumero.Text != "0" && lbRaizPotencia.Text == "")//gravar historico
             {
                 vHistorico[contLinha] = n1.ToString() + lbOperacao.Text + n2.ToString() + "=" + resultado.ToString();
                 MessageBox.Show(vHistorico[contLinha]);
                 contLinha++;
             }
             else
-            if(lbOperacao.Text == "√")
+            if(lbRaizPotencia.Text == "√" && lbResultado.Text == "")//a primeira conta foi de um raiz
             {
-                vHistorico[contLinha] = lbOperacao.Text + n1.ToString() + "=" + resultado.ToString();
+                vHistorico[contLinha] = lbRaizPotencia.Text + lbNumero.Text + "=" + n2.ToString();
+                MessageBox.Show(vHistorico[contLinha]);
+                contLinha++;
+            }
+            else
+            if(lbRaizPotencia.Text == "√" && lbResultado.Text != "" && lbNumero.Text != "0" && lbOperacao.Text != "" && resultado != 0 || lbRaizPotencia.Text == "^" && lbResultado.Text != "" && lbNumero.Text != "0" && lbOperacao.Text != "" && resultado != 0)
+            {
+                vHistorico[contLinha] = lbResultado.Text + lbOperacao.Text +lbRaizPotencia.Text + lbNumero.Text + "=" + resultado.ToString();
+                MessageBox.Show(vHistorico[contLinha]);
+                contLinha++;
+                lbRaizPotencia.Text = "";
+            }
+            else
+            if (lbRaizPotencia.Text == "^" && lbResultado.Text == "")//a primeira conta foi de um raiz
+            {
+                vHistorico[contLinha] = lbRaizPotencia.Text + lbNumero.Text + "=" + n2.ToString();
+                MessageBox.Show(vHistorico[contLinha]);
+                contLinha++;
+            }
+            else
+            if (lbResultado.Text != "" && lbNumero.Text == "0" && lbRaizPotencia.Text == "")//gravar historico
+            {
+                vHistorico[contLinha] = n1.ToString() + lbOperacao.Text + n2.ToString() + "=" + resultado.ToString();
                 MessageBox.Show(vHistorico[contLinha]);
                 contLinha++;
             }
@@ -70,74 +79,68 @@ namespace Calculadora
 
         private void calcular()
         {
-
-            try
+            if(lbResultado.Text != "")
             {
                 n1 = double.Parse(lbResultado.Text);
-                n2 = double.Parse(lbNumero.Text);
-
-                if (lbRaizPotencia.Text != "")
-                {
-                    switch (lbRaizPotencia.Text)
-                    {
-                        case "√":
-                            n2 = Math.Sqrt(n2);
-                            lbRaizPotencia.Text = "";
-                            break;
-                        case "^":
-                            n2 = Math.Pow(n2,n2);
-                            lbRaizPotencia.Text = "";
-                            break;
-                    }
-                }
-
-                switch (lbOperacao.Text)
-                {
-                    case "+":
-                        resultado = n1 + n2;
-                        gravarHistorico();
-                        lbResultado.Text = resultado.ToString();
-                        lbNumero.Text = "0";
-                        break;
-
-                    case "-":
-                        resultado = n1 - n2;
-                        gravarHistorico();
-                        lbResultado.Text = resultado.ToString();
-                        lbNumero.Text = "0";
-                        break;
-
-                    case "*":
-                        resultado = n1 * n2;
-                        gravarHistorico();
-                        lbResultado.Text = resultado.ToString();
-                        lbNumero.Text = "0";
-                        break;
-
-                    case "/":
-                        resultado = n1 / n2;
-                        gravarHistorico();
-                        lbResultado.Text = resultado.ToString();
-                        lbNumero.Text = "0";
-                        break;
-
-                    case "^":
-                        resultado = Math.Pow(n1,n2);
-                        gravarHistorico();
-                        lbResultado.Text = resultado.ToString();
-                        lbNumero.Text = "0";
-                        break;
-
-                    case "√":
-                        resultado = Math.Sqrt(n1);
-                        lbResultado.Text = resultado.ToString();
-                        gravarHistorico();
-                        break;
-                }
             }
-           catch
+            n2 = double.Parse(lbNumero.Text);
+
+            if (lbRaizPotencia.Text != "")
             {
-                MessageBox.Show("Digite um Número");
+                switch (lbRaizPotencia.Text)
+                {
+                    case "√":
+                        n2 = Math.Sqrt(n2);
+                        break;
+                    case "^":
+                        n2 = Math.Pow(n2,2);
+                        break;
+                }
+                if(lbResultado.Text == "" || lbOperacao.Text == "")//verifica se é o primeiro calculo ou se não fio feito operação de +-*/
+                {
+                    
+                    lbResultado.Text = n2.ToString();
+                    gravarHistorico();
+                    lbNumero.Text = "0";                       
+                }
+                else
+                {
+                    
+                    lbResultado.Text = resultado.ToString();
+                    gravarHistorico();
+                    lbNumero.Text = "0";
+                }            
+            }
+
+            switch (lbOperacao.Text)
+            {
+                case "+":
+                    resultado = n1 + n2;
+                    gravarHistorico();
+                    lbResultado.Text = resultado.ToString();
+                    lbNumero.Text = "0";
+                    break;
+
+                case "-":
+                    resultado = n1 - n2;
+                    gravarHistorico();
+                    lbResultado.Text = resultado.ToString();
+                    lbNumero.Text = "0";
+                    break;
+
+                case "*":
+                    resultado = n1 * n2;
+                    gravarHistorico();
+                    lbResultado.Text = resultado.ToString();
+                    lbNumero.Text = "0";
+                    break;
+
+                case "/":
+                    resultado = n1 / n2;
+                    gravarHistorico();
+                    lbResultado.Text = resultado.ToString();
+                    lbNumero.Text = "0";
+                    break;
             }
         }
 
@@ -218,6 +221,7 @@ namespace Calculadora
             lbResultado.Text = "";
             lbNumero.Text = "0";
             lbOperacao.Text = "";
+            lbRaizPotencia.Text = "";
             n1 = 0;
             n2 = 0;
             resultado = 0;
@@ -233,11 +237,23 @@ namespace Calculadora
 
         private void bntMais_Click(object sender, EventArgs e)
         {
+            if(lbOperacao.Text == "" && lbRaizPotencia.Text != "")
+            {
+                lbRaizPotencia.Text = "";
+                lbOperacao.Text = "+";
+                calcular();
+            }
+            else
             if(lbOperacao.Text == "")//se a operação estiver vazia vai ser o primeiro calculo
             {
                 lbResultado.Text = lbNumero.Text;
                 lbOperacao.Text = "+";
                 lbNumero.Text = "0";                
+            }
+            else
+            if(lbOperacao.Text != "+")
+            {
+                lbOperacao.Text = "+";
             }
             else
             {
@@ -248,6 +264,13 @@ namespace Calculadora
 
         private void bntMenos_Click(object sender, EventArgs e)
         {
+            if (lbOperacao.Text == "" && lbRaizPotencia.Text != "")
+            {
+                lbRaizPotencia.Text = "";
+                lbOperacao.Text = "-";
+                calcular();
+            }
+            else
             if (lbOperacao.Text == "")//se a operação estiver vazia vai ser o primeiro calculo
             {
                 lbResultado.Text = lbNumero.Text;
@@ -255,19 +278,36 @@ namespace Calculadora
                 lbNumero.Text = "0";
             }
             else
+            if (lbOperacao.Text != "-")
+            {
+                lbOperacao.Text = "-";
+            }
+            else
             {
                 calcular();
                 lbOperacao.Text = "-";
-            }           
+            }
         }
 
         private void bntVezes_Click(object sender, EventArgs e)
         {
+            if (lbOperacao.Text == "" && lbRaizPotencia.Text != "")
+            {
+                lbRaizPotencia.Text = "";
+                lbOperacao.Text = "*";
+                calcular();
+            }
+            else
             if (lbOperacao.Text == "")//se a operação estiver vazia vai ser o primeiro calculo
             {
                 lbResultado.Text = lbNumero.Text;
                 lbOperacao.Text = "*";
                 lbNumero.Text = "0";
+            }
+            else
+            if (lbOperacao.Text != "*")
+            {
+                lbOperacao.Text = "*";
             }
             else
             {
@@ -278,11 +318,23 @@ namespace Calculadora
 
         private void bntDivisao_Click(object sender, EventArgs e)
         {
+            if (lbOperacao.Text == "" && lbRaizPotencia.Text != "")
+            {
+                lbRaizPotencia.Text = "";
+                lbOperacao.Text = "/";
+                calcular();
+            }
+            else
             if (lbOperacao.Text == "")//se a operação estiver vazia vai ser o primeiro calculo
             {
                 lbResultado.Text = lbNumero.Text;
                 lbOperacao.Text = "/";
                 lbNumero.Text = "0";
+            }
+            else
+            if (lbOperacao.Text != "/")
+            {
+                lbOperacao.Text = "/";
             }
             else
             {
@@ -321,32 +373,13 @@ namespace Calculadora
 
         private void lbpotencia_Click(object sender, EventArgs e)
         {
-            if (lbOperacao.Text == "")//se a operação estiver vazia vai ser o primeiro calculo
-            {
-                lbResultado.Text = lbNumero.Text;
-                lbOperacao.Text = "^";
-                lbNumero.Text = "0";
-            }
-            else
-            {
-                calcular();
-                lbOperacao.Text = "^";
-            }
+            lbRaizPotencia.Text = "^";
+            calcular();
         }
         private void lbRaiz_Click(object sender, EventArgs e)
-        {
-            if (lbOperacao.Text == "")//se a operação estiver vazia vai ser o primeiro calculo
-            {
-                lbResultado.Text = "0";
-                lbRaizPotencia.Text = "√";
-                calcular();
-                
-            }
-            else
-            {
-                calcular();
-                lbOperacao.Text = "√";
-            }
+        { 
+            lbRaizPotencia.Text = "√";
+            calcular();
         }
 
         private void Main_Calculadora_KeyDown(object sender, KeyEventArgs tecla)
